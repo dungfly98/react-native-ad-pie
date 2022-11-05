@@ -20,3 +20,11 @@ const AdPie = NativeModules.AdPie
 export function multiply(a: number, b: number): Promise<number> {
   return AdPie.multiply(a, b);
 }
+
+export interface IShowAdPieVideoAds {
+  slotId: string;
+}
+
+export function showAdPieVideoAds(props: IShowAdPieVideoAds): Promise<any> {
+  return AdPie.showAdPieVideoAds(props);
+}

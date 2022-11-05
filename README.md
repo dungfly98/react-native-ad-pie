@@ -8,14 +8,37 @@ react native ad pie
 npm install react-native-ad-pie
 ```
 
+1. Run `cd ios && pod install && cd ..` to install all the necessary CocoaPods dependencies.
+​
+2. Open up the `AppDelegate.m || AppDelegate.mm` file, and add an import statement for the AdPie headers:
+
+   ```objective-c
+   #import <AdPieSDK/AdPieSDK.h>
+   ```
+
+3. Within your existing didFinishLaunchingWithOptions method, add the following to the top of the method:
+
+```
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  // Add me --- \/
+  [[AdPieSDK sharedInstance] initWithMediaId:@"***MediaId***"];
+  // Add me --- /\
+  // ...
+}
+```
+
 ## Usage
 
 ```js
-import { multiply } from 'react-native-ad-pie';
+import { showAdPieVideoAds } from 'react-native-ad-pie';
 
 // ...
 
-const result = await multiply(3, 7);
+const showAds = () => {
+  showAdPieVideoAds({
+    slotId: 'slotId',
+  });
+};
 ```
 
 ## Contributing

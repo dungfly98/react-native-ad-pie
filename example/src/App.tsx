@@ -1,18 +1,20 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-ad-pie';
+import { Button, StyleSheet, View } from 'react-native';
+import { showAdPieVideoAds } from 'react-native-ad-pie';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Button
+        color="red"
+        title="Show Ads"
+        onPress={() => {
+          showAdPieVideoAds({
+            slotId: '61de726d65a17f71c7896827',
+          });
+        }}
+      />
     </View>
   );
 }
